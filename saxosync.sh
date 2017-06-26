@@ -24,6 +24,7 @@ echo "Remote path: $REMOTEPATH"
 rm rsynclog.txt
 rm purgeoutput.txt
 
+export CLOUDSDK_PYTHON=python2.7
 gsutil -m rsync -rC $LOCALPATH gs://content-static-site-com/$REMOTEPATH |tee rsynclog.txt
 
 if [ -s rsynclog.txt ]; then
