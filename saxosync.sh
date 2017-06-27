@@ -25,7 +25,7 @@ rm rsynclog.txt
 rm purgeoutput.txt
 
 source /var/lib/google-cloud-sdk/path.bash.inc
-export PATH="/var/lib/google-cloud-sdk/bin/gsutil:$PATH"
+export PATH="/var/lib/google-cloud-sdk/bin:$PATH"
 export CLOUDSDK_PYTHON=python2.7
 gsutil -m rsync -rC $LOCALPATH gs://content-static-site-com/$REMOTEPATH |tee rsynclog.txt
 
