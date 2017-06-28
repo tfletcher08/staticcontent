@@ -52,7 +52,7 @@ URLLIST=""
 
 for i in ${DELETEDFILES[@]} ${MODIFIEDFILES[@]}; do
     if [ -z $URLLIST ]; then
-        URLLIST="\"$SITEURL$i\""
+        URLLIST="$SITEURL$i"
     else
         URLLIST="$URLLIST,\"$SITEURL$i\""
     fi
