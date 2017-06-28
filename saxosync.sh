@@ -37,8 +37,8 @@ else
     exit 1
 fi
 
-DELETEDFILES=($(grep "*Removing" rsynclog.txt|cut -d '/' -f 10))
-MODIFIEDFILES=($(grep "*Copying" rsynclog.txt|cut -d '/' -f 10))
+DELETEDFILES=($(grep "Removing" rsynclog.txt|cut -d '/' -f 10))
+MODIFIEDFILES=($(grep "Copying" rsynclog.txt|cut -d '/' -f 10))
 
 
 if [ ${#DELETEDFILES[@]} -eq 0 ] && [ ${#MODIFIEDFILES[@]} -eq 0 ]; then
