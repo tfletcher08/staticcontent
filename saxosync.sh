@@ -58,7 +58,7 @@ for i in ${DELETEDFILES[@]} ${MODIFIEDFILES[@]}; do
     fi
 done
 
-URLLIST="[$URLLIST]"
+URLLIST="$URLLIST"
 
 echo "Payload being sent to Fastly for cache purging: $URLLIST"
 
