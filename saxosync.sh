@@ -50,7 +50,8 @@ echo "I will purge ${#DELETEDFILES[@]} deleted files and ${#MODIFIEDFILES[@]} mo
 
 URLLIST=""
 
-for i in ${DELETEDFILES[@]} ${MODIFIEDFILES[@]}; do
+for i in ${DELETEDFILES[@]} ${MODIFIEDFILES[@]}; do 
+echo $i
     if [ -z $URLLIST ]; then
         URLLIST="$SITEURL$i"
     else
