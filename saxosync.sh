@@ -52,13 +52,13 @@ URLLIST=""
 
 for i in ${DELETEDFILES[@]} ${MODIFIEDFILES[@]}; do
     if [ -z $URLLIST ]; then
-        URLLIST="$SITEURL$i"
+        URLLIST="\"$SITEURL$i\""
     else
-        URLLIST="$URLLIST,$SITEURL$i"
+        URLLIST="$URLLIST,\"$SITEURL$i\""
     fi
 done
 
-URLLIST="$URLLIST"
+URLLIST="[$URLLIST]"
 
 echo "Payload being sent to Fastly for cache purging: $URLLIST"
 
