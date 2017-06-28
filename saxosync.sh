@@ -63,7 +63,7 @@ URLLIST="$URLLIST"
 echo "Payload being sent to Fastly for cache purging: $URLLIST"
 
 for i in ${DELETEDFILES[@]} ${MODIFIEDFILES[@]}; do
-    echo curl -X PURGE "$SITEURL$i" | tee purgeoutput.txt
+    curl -X PURGE "$SITEURL$i" | tee purgeoutput.txt
 done
 
 RESPONSE=$(cat purgeoutput.txt|head -1|awk '{print $2}')
