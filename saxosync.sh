@@ -28,7 +28,7 @@ rm purgeoutput.txt
 source /var/lib/google-cloud-sdk/path.bash.inc
 export PATH="/var/lib/google-cloud-sdk/bin:$PATH"
 export CLOUDSDK_PYTHON="python2.7"
-gsutil -m rsync -drC $LOCALPATH gs://content-static-site-com/$REMOTEPATH 2>&1 |tee rsynclog.txt
+gsutil -m rsync -drC $LOCALPATH gs://content-static-site-com$REMOTEPATH 2>&1 |tee rsynclog.txt
 
 if [ -s rsynclog.txt ]; then
     echo "Log exists, continuing."
