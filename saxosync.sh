@@ -38,7 +38,7 @@ else
 fi
 
 DELETEDFILES=($(grep "Removing" rsynclog.txt | sed 's#Removing gs://content-static-site-com/376025/web/static/content/[A-Za-z-]*/[A-Za-z-]*/[A-Za-z-]*/##g'))
-MODIFIEDFILES=($(grep "Copying" rsynclog.txt|sed 's#Copying file:///static/web/static/content/sites/[A-Za-z-]*/[A-Za-z-]*/[A-Za-z-]*/\(.*\) .*#\1#'))
+MODIFIEDFILES=($(grep "Copying" rsynclog.txt | sed 's#Copying file:///static/web/static/content/sites/[A-Za-z-]*/[A-Za-z-]*/[A-Za-z-]*/\(.*\) .*#\1#'))
 
 
 if [ ${#DELETEDFILES[@]} -eq 0 ] && [ ${#MODIFIEDFILES[@]} -eq 0 ]; then
