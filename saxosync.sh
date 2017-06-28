@@ -37,8 +37,8 @@ else
     exit 1
 fi
 
-DELETEDFILES=($(grep "Removing" rsynclog.txt|cut -d '/' -f 11))
-MODIFIEDFILES=($(grep "Copying" rsynclog.txt|cut -d '/' -f 11))
+DELETEDFILES=($(grep "Removing" rsynclog.txt|sed 's#Removing file:///static/web/static/content/sites/[A-Za-z-]*/[A-Za-z-]*/[A-Za-z-]*/\(.*\) .*#\1#'))
+MODIFIEDFILES=($(grep "Copying" rsynclog.txt|sed 's#Copying file:///static/web/static/content/sites/[A-Za-z-]*/[A-Za-z-]*/[A-Za-z-]*/\(.*\) .*#\1#'))
 
 
 if [ ${#DELETEDFILES[@]} -eq 0 ] && [ ${#MODIFIEDFILES[@]} -eq 0 ]; then
@@ -62,7 +62,7 @@ URLLIST="{\"objects\":[$URLLIST]}"
 
 echo "Payload being sent to Fastly for cache purging: $URLLIST"
 
-#curl -X PURGE "$URLLIST" | tee purgeoutput.txt
+echo curl -X PURGE "$URLLIST" | tee purgeoutput.txt
 
 RESPONSE=$(cat purgeoutput.txt|head -1|awk '{print $2}')
 
