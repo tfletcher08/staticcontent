@@ -70,8 +70,8 @@ done
 
 RESPONSE=$(cat purgeoutput.txt|head -1|awk '{print $2}')
 
-if [ "$RESPONSE" -ne "201" ]; then
-    echo "ERROR: Got response $RESPONSE from Fastly, expecting 201."
-    exit 1
-fi
+#if [ "$RESPONSE" -ne "201" ]; then
+#    echo "ERROR: Got response $RESPONSE from Fastly, expecting 201."
+#    exit 1
+#fi
 
