@@ -64,6 +64,7 @@ for i in ${DELETEDFILES[@]} ${MODIFIEDFILES[@]}; do
   for i in ${SITEURL[@]}; do
     echo "Payload being sent to Fastly for cache purging: $SITEURL$i"
     curl -X PURGE "$SITEURL$i" | tee purgeoutput.txt
+   done
 done
 
 RESPONSE=$(cat purgeoutput.txt|head -1|awk '{print $2}')
