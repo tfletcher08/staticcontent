@@ -60,8 +60,9 @@ done
 
 URLLIST="$URLLIST"
 
+IFS=',' read -r -a SITEURLLIST <<< "$SITEURL"
 for i in ${DELETEDFILES[@]} ${MODIFIEDFILES[@]}; do
-  for x in ${SITEURL[@]}; do
+  for x in ${SITEURLLIST[@]}; do
     echo "Payload being sent to Fastly for cache purging: $SITEURL$i"
     curl -X PURGE "$x$i" | tee purgeoutput.txt
    done
